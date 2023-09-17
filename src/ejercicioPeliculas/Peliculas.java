@@ -10,7 +10,6 @@ public class Peliculas {
 	
 
 	public Peliculas() {
-		
 		idAutomatico++;
 	};
 	

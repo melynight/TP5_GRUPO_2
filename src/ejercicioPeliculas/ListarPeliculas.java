@@ -17,7 +17,5 @@ public class ListarPeliculas extends JPanel {
 		
 		JList<Peliculas> listPeliculas = new JList<Peliculas>();
 		add(listPeliculas, BorderLayout.CENTER);
-
 	}
-
 }
