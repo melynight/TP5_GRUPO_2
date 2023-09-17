@@ -14,7 +14,6 @@ public class Categorias {
 	public String toString() {
 		return nombre;
 	}
-	
 
 	public String getNombre() {
 		return nombre;
@@ -23,10 +22,4 @@ public class Categorias {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-
 }
-
-
-

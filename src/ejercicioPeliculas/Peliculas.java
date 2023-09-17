@@ -51,8 +51,4 @@ public class Peliculas {
 	public void setCategoria(Categorias categoria) {
 		this.categoria = categoria;
 	}
-	
-	
-	
-	
 }
