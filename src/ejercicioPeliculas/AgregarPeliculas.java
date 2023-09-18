@@ -4,14 +4,19 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+
 
 public class AgregarPeliculas extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
+	private DefaultListModel<Peliculas> listModel;
+
 
 	public AgregarPeliculas() {
 		setLayout(null);
@@ -49,13 +54,35 @@ public class AgregarPeliculas extends JPanel {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (cbGeneros.getSelectedIndex() != 0 && cbGeneros.getSelectedIndex() != -1) { 
+				
+				//Agrega una pelicula al JList
+				if (cbGeneros.getSelectedIndex() != 0 && cbGeneros.getSelectedIndex() != -1 &&
+						!txtNombre.getText().isEmpty()) { 
 					//0 = primer elemento; -1 = ningun elemento seleccionado
+					Peliculas pel = new Peliculas();
+					Categorias cat = new Categorias();
+					cat.setNombre(cbGeneros.getSelectedItem().toString());
+					pel.setNombre(txtNombre.getText());
+					pel.setCategoria(cat);
+					listModel.addElement(pel);
 					
+					txtNombre.setText("");
+					cbGeneros.setSelectedIndex(0);
+					
+				} else 
+				{
+					JOptionPane.showMessageDialog(null, "No se puede agregar la pelicula");
+					txtNombre.setText("");
+					cbGeneros.setSelectedIndex(0);
 				}
 			}
 		});
 		btnAceptar.setBounds(76, 149, 89, 23);
 		add(btnAceptar);
+	}
+	
+	public void setDefaultListModel(DefaultListModel<Peliculas> listModelRecibido)
+	{
+		this.listModel = listModelRecibido;
 	}
 }

@@ -1,6 +1,9 @@
 package ejercicioPeliculas;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,10 +16,12 @@ import java.awt.event.ActionEvent;
 public class Ventana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static DefaultListModel<Peliculas> listModel;
 	
 	private JPanel contentPane;
 	
-	public Ventana() {
+	public Ventana(DefaultListModel<Peliculas> listModel) {
+		
 		
 		setTitle("Programa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,6 +38,7 @@ public class Ventana extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				contentPane.removeAll();
 				AgregarPeliculas panelAgregar = new AgregarPeliculas();
+				panelAgregar.setDefaultListModel(listModel);
 				contentPane.add(panelAgregar);
 				contentPane.repaint();
 				contentPane.revalidate();
@@ -45,6 +51,7 @@ public class Ventana extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
 				ListarPeliculas panelListar = new ListarPeliculas();
+				panelListar.setDefaultListModel(listModel);
 				contentPane.add(panelListar);
 				contentPane.repaint();
 				contentPane.revalidate();

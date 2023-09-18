@@ -2,7 +2,11 @@ package ejercicioPeliculas;
 
 import java.awt.EventQueue;
 
+import javax.swing.DefaultListModel;
+
 public class Principal {
+	
+	private static DefaultListModel<Peliculas> listModel;
 
 	public static void main(String[] args) {
 		
@@ -11,7 +15,9 @@ public class Principal {
 			public void run() {
 				
 				try {
-					Ventana frame = new Ventana();
+					//INSTANCIO EL LISTMODEL
+					listModel = new DefaultListModel<Peliculas>();
+					Ventana frame = new Ventana(listModel);
 					frame.setVisible(true);
 					
 				} catch (Exception e) {
@@ -20,4 +26,6 @@ public class Principal {
 			}
 		});
 	}
+	
 }
+	
