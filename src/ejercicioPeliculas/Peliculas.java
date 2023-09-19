@@ -4,6 +4,12 @@ public class Peliculas {
 
 	private static int idAutomatico=1;
 	
+	public static int getIdAutomatico() {
+		return idAutomatico;
+	}
+
+	
+
 	private int id;
 	private String nombre;
 	private Categorias categoria;

@@ -31,5 +31,6 @@ public class ListarPeliculas extends JPanel {
 	{
 		this.listModel = listModel2;
 		jList.setModel(this.listModel);
+		
 	}
 }

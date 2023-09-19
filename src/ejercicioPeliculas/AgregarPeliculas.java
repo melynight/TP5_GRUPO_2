@@ -17,6 +17,7 @@ public class AgregarPeliculas extends JPanel {
 	private JTextField txtNombre;
 	private DefaultListModel<Peliculas> listModel;
 
+	
 
 	public AgregarPeliculas() {
 		setLayout(null);
@@ -36,6 +37,7 @@ public class AgregarPeliculas extends JPanel {
 		JLabel lblIDAutonum = new JLabel("id");
 		lblIDAutonum.setBounds(163, 30, 46, 14);
 		add(lblIDAutonum);
+		lblIDAutonum.setText(Integer.toString(Peliculas.getIdAutomatico()));
 		
 		txtNombre = new JTextField();
 		txtNombre.setBounds(163, 67, 183, 20);
@@ -64,9 +66,11 @@ public class AgregarPeliculas extends JPanel {
 					cat.setNombre(cbGeneros.getSelectedItem().toString());
 					pel.setNombre(txtNombre.getText());
 					pel.setCategoria(cat);
+					pel.setId(Integer.parseInt(lblIDAutonum.getText()));
 					listModel.addElement(pel);
 					
 					txtNombre.setText("");
+					lblIDAutonum.setText(Integer.toString(Peliculas.getIdAutomatico()));
 					cbGeneros.setSelectedIndex(0);
 					
 				} else 
