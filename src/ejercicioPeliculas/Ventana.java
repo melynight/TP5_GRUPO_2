@@ -1,7 +1,6 @@
 package ejercicioPeliculas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -16,7 +15,7 @@ import java.awt.event.ActionEvent;
 public class Ventana extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private static DefaultListModel<Peliculas> listModel;
+	//private static DefaultListModel<Peliculas> listModel;
 	
 	private JPanel contentPane;
 	

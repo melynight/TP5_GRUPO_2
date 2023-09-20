@@ -7,8 +7,11 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
+import java.util.Collections;
 
 
 public class AgregarPeliculas extends JPanel {
@@ -52,10 +55,13 @@ public class AgregarPeliculas extends JPanel {
 		cbGeneros.addItem(new Categorias("Suspenso"));
 		cbGeneros.addItem(new Categorias("Romántica"));
 		add(cbGeneros);
+		List<Peliculas>ListaPelis = new ArrayList<>();
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				
 				//Agrega una pelicula al JList
 				if (cbGeneros.getSelectedIndex() != 0 && cbGeneros.getSelectedIndex() != -1 &&
@@ -67,7 +73,19 @@ public class AgregarPeliculas extends JPanel {
 					pel.setNombre(txtNombre.getText());
 					pel.setCategoria(cat);
 					pel.setId(Integer.parseInt(lblIDAutonum.getText()));
-					listModel.addElement(pel);
+					///creo la lista array
+					
+					ListaPelis.add(pel);
+					CompararPeliculas compararPelis = new CompararPeliculas();
+					Collections.sort(ListaPelis, compararPelis);
+					
+					listModel.clear();
+					
+			        for (Peliculas peli : ListaPelis) {
+			            listModel.addElement(peli);
+			        }
+			        
+					//listModel.addElement(pel);
 					
 					txtNombre.setText("");
 					lblIDAutonum.setText(Integer.toString(Peliculas.getIdAutomatico()));

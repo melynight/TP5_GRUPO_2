@@ -3,7 +3,6 @@ package ejercicioPeliculas;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
-import java.awt.Font;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
