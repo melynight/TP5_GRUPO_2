@@ -49,8 +49,7 @@ public class Ventana extends JFrame {
 		mItemListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
-				ListarPeliculas panelListar = new ListarPeliculas();
-				panelListar.setDefaultListModel(listModel);
+				ListarPeliculas panelListar = new ListarPeliculas(listModel);
 				contentPane.add(panelListar);
 				contentPane.repaint();
 				contentPane.revalidate();

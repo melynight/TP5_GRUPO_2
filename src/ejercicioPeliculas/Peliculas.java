@@ -1,14 +1,12 @@
 package ejercicioPeliculas;
 
-public class Peliculas {
+public class Peliculas implements Comparable<Peliculas> {
 
 	private static int idAutomatico=1;
 	
 	public static int getIdAutomatico() {
 		return idAutomatico;
 	}
-
-	
 
 	private int id;
 	private String nombre;
@@ -56,4 +54,9 @@ public class Peliculas {
 	public void setCategoria(Categorias categoria) {
 		this.categoria = categoria;
 	}
+	
+	@Override
+    public int compareTo(Peliculas otraPelicula) {
+        return this.getNombre().compareTo(otraPelicula.getNombre());
+    }
 }
