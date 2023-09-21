@@ -28,7 +28,7 @@ public class Peliculas implements Comparable<Peliculas> {
 	
 	@Override
 	public String toString() {
-		return id + "- " + nombre;
+		return id + "- " + nombre + " - " + categoria.toString();
 	}
 
 	public int getId() {
